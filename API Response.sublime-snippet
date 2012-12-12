@@ -1,0 +1,18 @@
+<snippet>
+	<content><![CDATA[
+\$response = Apicall::${1:get}('${2:url}'${3:, ${4:\$params}});
+if (isset(\$response->code) and \$response->code === Apistatus::SUCCESS)
+{
+	${7:// CODE}
+}
+else
+{
+	Message::error(isset(\$response->body->message) ? \$response->body->message : __('${5:api.status.error}'));
+	Response::redirect('${6:location}');
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>API_Response</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
